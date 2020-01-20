@@ -18,13 +18,12 @@
         <!-- Add your extensions here -->
     </extensions>
 
-    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.all</depends>
 
-    <actions>
+   <application-components>
+       <component>
+           <implementation-class>com.fnovellon.buildonmusic.BuildOnMusicApp</implementation-class>
+       </component>
+   </application-components>
 
-        <action id="com.fnovellon.buildonmusic.TestAction" class="com.fnovellon.buildonmusic.TestAction"
-                text="TestAction" description="TestAction">
-            <add-to-group group-id="ToolsBasicGroup" anchor="first"/>
-        </action>
-    </actions>
 </idea-plugin>
