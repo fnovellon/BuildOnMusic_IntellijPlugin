@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>com.fnovellon.buildonmusic</id>
+    <name>Build On Music</name>
+    <vendor email="fl.novellon@gmail.com">fnovellon</vendor>
+    <description>
+        This plugin will help you to wait during your endless build with superb music on hold
+    </description>
+
+    <idea-version since-build="171"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <depends>com.intellij.modules.lang</depends>
+
+
+    <application-components>
+        <component>
+            <implementation-class>com.fnovellon.buildonmusic.BuildOnMusicApp</implementation-class>
+        </component>
+    </application-components>
+
+</idea-plugin>
