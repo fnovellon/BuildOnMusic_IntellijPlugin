@@ -1,24 +1,13 @@
 <idea-plugin>
     <id>com.fnovellon.buildonmusic</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
-
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
-
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+    <name>Build On Music</name>
+    <vendor email="fl.novellon@gmail.com" >fnovellon</vendor>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
-    <depends>com.intellij.modules.all</depends>
+    <depends>com.intellij.modules.lang</depends>
 
    <application-components>
        <component>

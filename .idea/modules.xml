@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildonmusic.iml" filepath="$PROJECT_DIR$/.idea/modules/buildonmusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildonmusic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/buildonmusic.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildonmusic.test.iml" filepath="$PROJECT_DIR$/.idea/modules/buildonmusic.test.iml" />
+    </modules>
+  </component>
+</project>
