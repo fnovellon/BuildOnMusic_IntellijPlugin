@@ -15,7 +15,7 @@ class BuildOnMusicApp : ApplicationComponent, ProjectManagerListener {
     override fun getComponentName(): String = "Build on music component"
 
     override fun disposeComponent() {
-        musicPlayer.switch.turnOff()
+        musicPlayer.switch = false
     }
 
     override fun initComponent() {
@@ -27,10 +27,10 @@ class BuildOnMusicApp : ApplicationComponent, ProjectManagerListener {
     override fun projectOpened(project: Project) {
         CompilerTrigger(project).apply {
             addOnStartedListener {
-                musicPlayer.switch.turnOn()
+                musicPlayer.switch = true
             }
             addOnFinishedListener {
-                musicPlayer.switch.turnOff()
+                musicPlayer.switch = false
             }
         }
     }

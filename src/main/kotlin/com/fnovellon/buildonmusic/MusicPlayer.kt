@@ -1,38 +1,36 @@
 package com.fnovellon.buildonmusic
 
-import com.fnovellon.buildonmusic.SwitchOnOff.Companion.OFF
+import com.intellij.openapi.vfs.VfsUtil
+import com.intellij.util.ResourceUtil
 import javazoom.jl.player.advanced.AdvancedPlayer
 import javazoom.jl.player.advanced.PlaybackEvent
 import javazoom.jl.player.advanced.PlaybackListener
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.BufferedInputStream
+import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
+import java.lang.IllegalArgumentException
 
 class MusicPlayer {
 
     companion object {
-        private const val MUSIC_PATH = "D:\\lab\\IntelliJ\\src\\main\\sounds\\e1.mp3"
+        private const val SOUNDS_DIR = "sounds"
+        private const val ELEVATOR_MUSIC_PATH = "e1.mp3"
     }
 
-    val switch: SwitchOnOff = SwitchOnOff(OFF)
-
-    init {
-        switch.addOnValueChangedListener { isTurnedOn ->
-            println("SWITCHED : $isTurnedOn")
-            if (isTurnedOn) {
-                GlobalScope.launch {
-                    try {
-                        playMusicFromFile(getInputStream())
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }.start()
-            } else {
-                //player?.stop()
-                player?.close()
-            }
+    var switch: Boolean by switchable(false) { _, _, isTurnedOn ->
+        if (isTurnedOn) {
+            GlobalScope.launch {
+                try {
+                    playMusicFromFile(getInputStream())
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }.start()
+        } else {
+            player?.close()
         }
     }
 
@@ -51,8 +49,10 @@ class MusicPlayer {
         }
     }
 
-    private fun getInputStream(): InputStream = BufferedInputStream(FileInputStream(MUSIC_PATH))
+    private fun getInputStream(): InputStream {
+        val url = ResourceUtil.getResource(MusicPlayer::class.java, SOUNDS_DIR, ELEVATOR_MUSIC_PATH)
+        val virtualFile = VfsUtil.findFileByURL(url)
+        return BufferedInputStream(virtualFile!!.inputStream)
+    }
 
 }
-
-

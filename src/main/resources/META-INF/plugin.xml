@@ -2,6 +2,9 @@
     <id>com.fnovellon.buildonmusic</id>
     <name>Build On Music</name>
     <vendor email="fl.novellon@gmail.com" >fnovellon</vendor>
+    <description>
+        This plugin will help you to wait during your endless build with superb music on hold
+    </description>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
